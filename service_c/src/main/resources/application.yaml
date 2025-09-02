@@ -16,3 +16,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+logging:
+    level:
+      org.springframework: DEBUG # Будет виден процесс создания бинов
+      mentorship.roadmap.microservices.service_c: DEBUG
