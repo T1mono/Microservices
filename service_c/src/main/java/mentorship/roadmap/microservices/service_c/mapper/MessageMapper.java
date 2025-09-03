@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class MessageMapper {
 
 
-    ProcessedMessage requestDtoToEntity(ProcessedMessageRequestDto requestDto) {
+    public ProcessedMessage requestDtoToEntity(ProcessedMessageRequestDto requestDto) {
         ProcessedMessage processedMessage = new ProcessedMessage();
         processedMessage.setMessage(requestDto.getMessage());
         processedMessage.setType(requestDto.getType());
