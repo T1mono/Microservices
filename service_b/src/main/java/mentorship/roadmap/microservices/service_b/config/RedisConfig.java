@@ -20,7 +20,7 @@ public class RedisConfig {
         // Настраиваем сериализацию ключей (строки)
         template.setKeySerializer(new StringRedisSerializer());
         // Настраиваем сериализацию ключей (JSON)
-        template.setKeySerializer(new GenericJackson2JsonRedisSerializer());
+        template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
 
         return template;
     }
