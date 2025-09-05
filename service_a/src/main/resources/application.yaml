@@ -4,10 +4,10 @@ spring:
 
   data:
     mongodb:
-      uri: ${MONGODB_URI}
+      uri: ${MONGODB_URI:mongodb://mongo:27017/service-a-db}
 
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
     consumer:
       auto-offset-reset: earliest
       group-id: service-a
@@ -15,4 +15,4 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 service-b:
-  uri: ${SERVICE_B_URL}
+  uri: ${SERVICE_B_URL:http://service-b:8080}
