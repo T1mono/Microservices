@@ -24,7 +24,7 @@ public class KafkaConsumerConfig {
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "service_a_group"); // Идентификатор группы потребителей - все инстансы сервиса будут в одной группе
+        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "service-a"); // Идентификатор группы потребителей - все инстансы сервиса будут в одной группе
         configProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest"); // "earliest" - читать с самого начала (не терять сообщения)
 
         return new DefaultKafkaConsumerFactory<>(configProps);
