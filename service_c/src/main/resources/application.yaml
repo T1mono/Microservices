@@ -8,9 +8,9 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
   datasource:
-    url: ${DATASOURCE_URL}
-    password: ${DATASOURCE_PASSWORD}
-    username: ${DATASOURCE_USERNAME}
+    url: ${DATASOURCE_URL:jdbc:postgresql://postgres:5432/service_c_db}
+    password: ${DATASOURCE_PASSWORD:password}
+    username: ${DATASOURCE_USERNAME:user}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

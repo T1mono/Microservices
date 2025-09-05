@@ -4,8 +4,8 @@ spring:
 
   data:
     redis:
-      host: ${REDIS_HOST}
-      port: ${REDIS_PORT}
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
 
 service-c:
-  uri: ${SERVICE_C_URL}
+  uri: ${SERVICE_C_URL:http://service-c:8080}
