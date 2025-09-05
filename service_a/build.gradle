@@ -28,6 +28,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'  // Для MongoDB
     implementation 'org.springframework.kafka:spring-kafka'  // Для Kafka
     implementation 'org.springframework.boot:spring-boot-starter-webflux'  // Для WebClient
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 
     // ЯВНО добавляем spring-context для решения проблемы с FilterType
     implementation 'org.springframework:spring-context'
