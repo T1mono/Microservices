@@ -1,0 +1,38 @@
+# Исключаем локальные конфигурации Spring Boot
+**/application-local.yaml
+**/application-local.yml
+**/application-local.properties
+
+# Исключаем Git файлы
+.git
+.gitignore
+
+# Исключаем файлы сборки
+target/
+build/
+out/
+*.class
+*.jar
+!**/build/libs/*.jar  # Включаем только готовые jar файлы
+
+# Исключаем IDE файлы
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Исключаем логи
+*.log
+logs/
+
+# Исключаем временные файлы
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Исключаем документацию
+README.md
+*.md
+docs/
