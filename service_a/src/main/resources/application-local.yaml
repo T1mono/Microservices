@@ -2,44 +2,10 @@ spring:
   config:
     activate:
       on-profile: local
-  application:
-    name: service-a
   data:
     mongodb:
       uri: mongodb://localhost:27017/service-a-db
-      auto-index-creation: true
   kafka:
     bootstrap-servers: localhost:9092
-    consumer:
-      group-id: service-a-group
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-
-# Настройки подключения к Service-B
 service-b:
-  url: http://localhost:8082
-  timeout: 5000
-
-# Настройки логирования для локальной разработки
-logging:
-  level:
-    root: INFO
-    mentorship.roadmap.microservices.service_a: DEBUG
-    org.springframework.kafka: DEBUG
-    org.mongodb.driver: DEBUG
-  pattern:
-    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
-
-# Настройки Actuator для локальной разработки
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics
-  endpoint:
-    health:
-      show-details: always
+  uri: http://localhost:8082
