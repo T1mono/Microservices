@@ -21,7 +21,7 @@ public class KafkaMessageListener {
     private final MessageMapper messageMapper;
 
     @KafkaListener(
-            topics = "out",
+            topics = "in",
             groupId = "service-b",
             containerFactory = "kafkaListenerContainerFactory"
     )

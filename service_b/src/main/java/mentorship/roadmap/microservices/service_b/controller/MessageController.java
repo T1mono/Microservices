@@ -17,7 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import java.time.Duration;
 
 @RestController
-@RequestMapping("api/process")
+@RequestMapping("/api/process")
 @RequiredArgsConstructor
 @Slf4j
 public class MessageController {
