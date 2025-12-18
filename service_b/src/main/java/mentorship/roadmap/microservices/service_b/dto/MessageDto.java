@@ -29,11 +29,4 @@ public class MessageDto implements Serializable {
     private MessageType type;  // Используем enum вместо String
 
     private LocalDateTime timestamp;
-
-    @Builder
-    public MessageDto(String message, MessageType type, LocalDateTime localDateTime) {
-        this.message = message;
-        this.type = type;
-        this.timestamp = LocalDateTime.now();
-    }
 }
