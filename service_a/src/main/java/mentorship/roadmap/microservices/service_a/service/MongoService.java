@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class MessageService {
+public class MongoService {
 
     private final MessageRepository messageRepository;
     private final MessageMapper messageMapper;

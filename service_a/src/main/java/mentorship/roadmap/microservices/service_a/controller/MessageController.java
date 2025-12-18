@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mentorship.roadmap.microservices.service_a.dto.MessageDto;
+import mentorship.roadmap.microservices.service_a.model.Message;
+import mentorship.roadmap.microservices.service_a.service.MongoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -18,31 +20,32 @@ import java.time.LocalDateTime;
 public class MessageController {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
+    private final MongoService mongoService;
     private final ObjectMapper objectMapper;
 
     @PostMapping("/send")
-    public ResponseEntity<String> sendMessage(@RequestBody String rawJson) {
+    public ResponseEntity<String> sendMessage(@RequestBody MessageDto messageDto) {
         try {
-            log.info("Received raw JSON: {}", rawJson);
+            log.info("=== STEP 1: Received message ===");
+            log.info("Message: {}, Type: {}", messageDto.getMessage(), messageDto.getType());
 
-            // Десериализуем вручную для отладки
-            MessageDto messageDto = objectMapper.readValue(rawJson, MessageDto.class);
-            log.info("Parsed message: {}", messageDto);
+            // 1. Сохранить в MongoDB
+            log.info("=== STEP 2: Saving to MongoDB ===");
+            Message savedMessage = mongoService.saveToMongo(messageDto);
+            log.info("Saved to MongoDB with ID: {}", savedMessage.getId());
 
-            // Убедимся, что timestamp установлен
-            if (messageDto.getTimestamp() == null) {
-                messageDto.setTimestamp(LocalDateTime.now());
-            }
-
+            // 2. Отправить в Kafka
+            log.info("=== STEP 3: Sending to Kafka ===");
             String jsonMessage = objectMapper.writeValueAsString(messageDto);
-            log.info("Sending to Kafka: {}", jsonMessage);
-
             kafkaTemplate.send("in", jsonMessage);
-            return ResponseEntity.ok("Message sent successfully");
+
+            log.info("=== STEP 4: Success ===");
+            return ResponseEntity.ok("Message saved to MongoDB and sent to Kafka");
+
         } catch (Exception e) {
-            log.error("Error sending message: {}", e.getMessage(), e);
+            log.error("Error: {}", e.getMessage(), e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error sending message: " + e.getMessage());
+                    .body("Error: " + e.getMessage());
         }
     }
 }
