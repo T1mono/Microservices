@@ -1,5 +1,8 @@
 package mentorship.roadmap.microservices.service_b.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum MessageType {
     IMPORTANT("important"),
     REGULAR("regular");
@@ -8,10 +11,6 @@ public enum MessageType {
 
     MessageType(String value) {
         this.value = value;
-    }
-
-    public String getValue() {
-        return value;
     }
 
     public static MessageType fromValue(String value) {

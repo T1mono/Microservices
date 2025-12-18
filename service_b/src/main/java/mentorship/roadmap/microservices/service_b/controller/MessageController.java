@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mentorship.roadmap.microservices.service_b.dto.MessageDto;
+import mentorship.roadmap.microservices.service_b.enums.MessageType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class MessageController {
     public ResponseEntity<String> processMessage(@Valid @RequestBody MessageDto messageDto) {
         try {
             log.info("Received message from Service A: {}", messageDto);
-            if ("important".equals(messageDto.getType())) {
+            if (MessageType.IMPORTANT.equals(messageDto.getType())) {
                 //Создаем уникальный ключ для Redis
                 String key = "msg:" + System.currentTimeMillis();
 

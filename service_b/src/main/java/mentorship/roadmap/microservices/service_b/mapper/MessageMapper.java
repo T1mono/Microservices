@@ -37,7 +37,7 @@ public class MessageMapper {
     public MessageDto redisMapToDto(Map<String, String> redisMap) {
         return new MessageDto(
                 redisMap.get("message"),
-                MessageType.fromValue(redisMap.getOrDefault("type", MessageType.REGULAR.getValue())),
+                MessageType.fromValue(redisMap.getOrDefault("type", MessageType.IMPORTANT.getValue())),
                 LocalDateTime.parse(redisMap.get("timestamp"))
         );
     }
