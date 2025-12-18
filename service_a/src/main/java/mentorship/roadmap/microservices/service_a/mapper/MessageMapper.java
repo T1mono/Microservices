@@ -1,8 +1,8 @@
-package mentorship.roadmap.microservices.mapper;
+package mentorship.roadmap.microservices.service_a.mapper;
 
-import mentorship.roadmap.microservices.dto.MessageDto;
-import mentorship.roadmap.microservices.enums.MessageType;
-import mentorship.roadmap.microservices.model.Message;
+import mentorship.roadmap.microservices.service_a.dto.MessageDto;
+import mentorship.roadmap.microservices.service_a.enums.MessageType;
+import mentorship.roadmap.microservices.service_a.model.Message;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

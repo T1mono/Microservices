@@ -1,4 +1,4 @@
-package mentorship.roadmap.microservices.consumer;
+package mentorship.roadmap.microservices.service_a.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
