@@ -1,4 +1,4 @@
-package mentorship.roadmap.microservices.model;
+package mentorship.roadmap.microservices.service_a.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

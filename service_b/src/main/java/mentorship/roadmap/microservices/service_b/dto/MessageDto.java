@@ -3,7 +3,6 @@ package mentorship.roadmap.microservices.service_b.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mentorship.roadmap.microservices.service_b.enums.MessageType;
@@ -29,11 +28,4 @@ public class MessageDto implements Serializable {
     private MessageType type;  // Используем enum вместо String
 
     private LocalDateTime timestamp;
-
-    @Builder
-    public MessageDto(String message, MessageType type, LocalDateTime localDateTime) {
-        this.message = message;
-        this.type = type;
-        this.timestamp = LocalDateTime.now();
-    }
 }

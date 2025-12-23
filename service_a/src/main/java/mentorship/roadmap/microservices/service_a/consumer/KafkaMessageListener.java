@@ -1,13 +1,13 @@
-package mentorship.roadmap.microservices.consumer;
+package mentorship.roadmap.microservices.service_a.consumer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mentorship.roadmap.microservices.dto.MessageDto;
-import mentorship.roadmap.microservices.mapper.MessageMapper;
-import mentorship.roadmap.microservices.model.Message;
-import mentorship.roadmap.microservices.repository.MessageRepository;
+import mentorship.roadmap.microservices.service_a.dto.MessageDto;
+import mentorship.roadmap.microservices.service_a.mapper.MessageMapper;
+import mentorship.roadmap.microservices.service_a.model.Message;
+import mentorship.roadmap.microservices.service_a.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
