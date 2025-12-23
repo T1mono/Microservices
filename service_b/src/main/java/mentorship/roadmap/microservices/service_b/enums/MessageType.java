@@ -14,11 +14,16 @@ public enum MessageType {
     }
 
     public static MessageType fromValue(String value) {
+        if (value == null) {
+            return REGULAR;
+        }
+        String lowerValue = value.toLowerCase();
         for (MessageType type : MessageType.values()) {
-            if (type.value.equals(value)) {
+            if (type.value.equals(lowerValue)) {
                 return type;
             }
         }
-        throw new IllegalArgumentException("Unknown message type: " + value);
+        // Если не нашли - возвращаем REGULAR по умолчанию
+        return REGULAR;
     }
 }

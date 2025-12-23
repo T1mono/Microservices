@@ -3,7 +3,6 @@ package mentorship.roadmap.microservices.service_b.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import mentorship.roadmap.microservices.service_b.enums.MessageType;

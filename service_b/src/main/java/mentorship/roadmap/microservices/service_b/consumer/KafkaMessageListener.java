@@ -24,7 +24,7 @@ public class KafkaMessageListener {
     private final WebClient.Builder webClientBuilder; //Для вызова сервиса service_c
 
     //TODO
-    @Value("${service_c.url}")
+    @Value("${service-c.uri}")
     private String serviceCUrl;
 
     @KafkaListener(
